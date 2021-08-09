@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipulating the DOM</title>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+    <!-- Load Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+    <header class="page__header">
+        <nav class="navbar__">
+            <!-- Navigation starts as empty UL that will be populated with JS -->
+            <ul id="navbar__list" class="ulli">
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <header class="main__hero">
+            <h1>Things dads do. </h1>
+        </header>
+        <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+        <section id="section1" data-nav="Section 1" class="your-active-class">
+            <div class="landing__container">
+                <h2> Sneeze </h2>
+                <p> Most dads have a superpower of sneezing that can be heard far. They then pass the talent to their kids which the kids develop when they become old. </p>
+                <p> Maybe because dads are stressed out about us all the time. That their sneeze is kind of loud.</p>
+            </div>
+        </section>
+        <section id="section2" data-nav="Section 2">
+            <div class="landing__container">
+                <h2> Birthday gifts</h2>
+                <p> Not only they don't want a birthday gift, they dont make the attempt to celebrate their birthday.</p>
+                <p> Their world is about us, so they forget to take care of themselves. :(</p>
+            </div>
+        </section>
+        <section id="section3" data-nav="Section 3">
+            <div class="landing__container">
+                <h2> Sleeping in the couch</h2>
+                <p> If your dad doesn't fall asleeep in the couch while watching tv, are you sure he is your dad. </p>
+                <p> They're so exhausted , this is the time they get some peace :) .</p>
+            </div>
+        </section>
+
+        <section id="section4" data-nav="Section 4">
+            <div class="landing__container">
+                <h2>Ask your mom.</h2>
+                <p> Asking dads for permission. Dad will say "Ask your mom if she will allow it" </p>
+                <p> My dad doesnt want to make mom upset by allowing something she wont approve of.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="page__footer">
+        <p class="social2">Find me on Social:</p>
+        <div class="social ">
+            <a href="https://www.facebook.com/faisaluddin.mahboob/ " target="blank_ "><img class="facebook " src="Images/iconfinder_social-facebook-square2_771366.png" width="30px " height="30px "></a>
+            <a href="https://www.instagram.com/faisal.mahboob06/ " target="blank_ "><img class="instagram" src="Images/iconfinder_173_Instagram_logo_logos_4373228.png " width="30px " height="30px "> </a>
+            <a href="https://www.linkedin.com/in/faisalmahb/ " target="blank_ "><img class="instagram " src="Images/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png " width="30px " height="30px "> </a>
+            <a href="https://twitter.com/FaisalMhb" target="blank_ "><img class="instagram " src="Images/iconfinder_1_Twitter_colored_svg_5296514.png" width="30px " height="30px "> </a>
+        </div>
+    </footer>
+    <script src="js/app.js">debugger;</script>
+</body>
+
+
+
+</html>

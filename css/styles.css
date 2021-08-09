@@ -1,0 +1,419 @@
+        /*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+        /* ---- Base Rules ---- */
+        
+        body {
+            background: rgb(136, 203, 171);
+            background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
+            margin: 0;
+            font-family: 'Merriweather', serif;
+            color: #fff;
+        }
+        /* Typeography General*/
+        
+        h1 {
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 3em;
+            margin: 2em 1rem;
+        }
+        
+        @media only screen and (min-width: 35em) {
+            h1 {
+                font-size: 7em;
+                margin: 2em 4rem 1em;
+            }
+        }
+        
+        h2 {
+            border-bottom: 1px solid #cc1;
+            font-family: 'Oxygen', Sans-Serif;
+            font-size: 3em;
+            color: #fff;
+        }
+        
+        p {
+            line-height: 1.6em;
+            color: #eee;
+        }
+        /* ---- Layout Rules ---- */
+        
+        main {
+            margin: 10vh 1em 10vh;
+        }
+        
+        .main-hero {
+            min-height: 40vh;
+            padding-top: 3em;
+        }
+        
+        section {
+            position: relative;
+            min-height: 55vh;
+        }
+        
+        #navbar__list {
+            display: grid;
+            grid-template-columns: 5fr 2fr 2fr 2fr 2fr;
+            justify-items: center;
+            align-items: center;
+            margin-top: 0;
+            height: 74px;
+            justify-content: center;
+        }
+        /* ---- Module Rules ---- */
+        /* Navigation Styles*/
+        
+        .navbar__menu ul {
+            padding-left: 0;
+            margin: 0;
+            text-align: right;
+            color: black;
+        }
+        /*.navbar__menu li {
+    display: inline-block;
+    color: black;
+    height: 40px;
+} */
+        
+        .navbar__menu .menu__link {
+            display: block;
+            padding: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .navbar__menu .menu__link:hover {
+            background: #333;
+            color: #fff;
+            transition: ease 0.3s all;
+        }
+        /* Header Styles */
+        
+        .page__header {
+            background: #fff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 5;
+            border: 6px groove pink;
+            line-height: 1.7em;
+            color: black;
+            height: 70px;
+        }
+        /* Footer Styles */
+        
+        .page__footer {
+            background: #000;
+            padding: 3em;
+            color: #fff;
+        }
+        
+        .page__footer p {
+            color: #fff;
+        }
+        /* ---- Theme Rules ---- */
+        /* Landing Container Styles */
+        
+        .landing__container {
+            padding: 1em;
+            text-align: left;
+        }
+        
+        @media only screen and (min-width: 35em) {
+            .landing__container {
+                max-width: 50em;
+                padding: 4em;
+            }
+        }
+        
+        section:nth-of-type(even) .landing__container {
+            margin-right: 0;
+            margin-left: auto;
+            text-align: right;
+        }
+        /* Background Circles */
+        /* Note that background circles are created with psuedo elements before and after */
+        /* Circles appear to be random do to use of :nth-of-type psuedo class */
+        
+        section:nth-of-type(odd) .landing__container::before {
+            content: '';
+            background: rgba(255, 255, 255, 0.187);
+            position: absolute;
+            z-index: -5;
+            width: 20vh;
+            height: 20vh;
+            border-radius: 50%;
+            opacity: 0;
+            transition: ease 0.5s all;
+        }
+        
+        section:nth-of-type(even) .landing__container::before {
+            content: '';
+            background: rgb(255, 255, 255);
+            background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+            position: absolute;
+            top: 3em;
+            right: 3em;
+            z-index: -5;
+            width: 10vh;
+            height: 10vh;
+            border-radius: 50%;
+            opacity: 0;
+            transition: ease 0.5s all;
+        }
+        
+        section:nth-of-type(3n) .landing__container::after {
+            content: '';
+            background: rgb(255, 255, 255);
+            background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -5;
+            width: 10vh;
+            height: 10vh;
+            border-radius: 50%;
+            opacity: 0;
+            transition: ease 0.5s all;
+        }
+        
+        section:nth-of-type(3n + 1) .landing__container::after {
+            content: '';
+            background: rgb(255, 255, 255);
+            background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+            position: absolute;
+            right: 20vw;
+            bottom: -5em;
+            z-index: -5;
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            opacity: 0;
+            transition: ease 0.5s all;
+        }
+        /* ---- Theme State Rules ---- */
+        /* Section Active Styles */
+        /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+        
+        section.your-active-class {
+            background: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            display: flex;
+        }
+        
+        section.your-active-class .landing__container::before {
+            opacity: 1;
+            animation: rotate 4s linear 0s infinite forwards;
+        }
+        
+        section.your-active-class .landing__container::after {
+            opacity: 1;
+            animation: rotate 5s linear 0s infinite forwards reverse;
+        }
+        /* Section Active Styles Keyframe Animations */
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg) translate(-1em) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translate(-1em) rotate(-360deg);
+            }
+        }
+        
+        .logo {
+            font-size: 20px;
+            justify-self: left;
+            border-radius: 40px;
+        }
+        
+        .sect1 {
+            margin-right: 10px;
+            align-self:center;
+        }
+        
+        .sect2 {
+            margin-right: 10px;
+        }
+        
+        .sect3 {
+            margin-right: 10px;
+        }
+        
+        .sect4 {
+            margin-right: 10px;
+        }
+        
+    .sect1:hover {
+        background:cornsilk;
+        width:190px;
+        height:30px;
+        padding-top:7px;
+        justify-self:center;
+        align-self:center;
+        text-align:center;
+        border-radius:14px;
+        border:2px solid purple;
+    }
+
+    .sect2:hover{
+        background:cornsilk;
+        width:190px;
+        height:30px;
+        padding-top:7px;
+        justify-self:center;
+        align-self:center;
+        text-align:center;
+        border-radius:14px;
+        border:2px solid purple;
+    }
+
+
+
+    .sect3:hover{
+        background:cornsilk;
+        width:190px;
+        height:30px;
+        padding-top:7px;
+        justify-self:center;
+        align-self:center;
+        text-align:center;
+        border-radius:14px;
+        border:2px solid purple;
+    }
+
+    .sect4:hover{
+        background:cornsilk;
+        width:190px;
+        height:30px;
+        padding-top:7px;
+        justify-self:center;
+        align-self:center;
+        text-align:center;
+        border-radius:14px;
+        border:2px solid purple;
+    }
+    
+    
+    
+    .active {
+            box-shadow: 20px 20px 20px 20px black;
+            border: 11px groove snow;
+            border-radius: 29px;
+            font-size: 1em;
+            font-weight: bold;
+            text-shadow: 3px black;
+            padding-bottom: 5px;
+            max-height: 80vh;
+            scroll-behavior: smooth;
+            margin: 0px 0px 50px 20px;
+            animation-name: active1;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            background-color: rgb(25, 221, 156);
+        }
+        
+        @keyframes active1 {
+            0% {
+                top: 10px
+            }
+            25% {
+                top: 40px;
+            }
+            50% {
+                top: 10px;
+            }
+            75% {
+                top: 40px;
+            }
+            100% {
+                top: 10px;
+            }
+        }
+        
+        .fog {
+            color: black;
+            font-weight: bolder;
+         
+            text-decoration: 3px red underline;  
+            text-underline-offset: 4px;
+           
+            
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        .box1 {
+            margin-top: 7px;
+        }
+        
+        .social {
+            width: 80vw;
+            height: 20vh;
+            display: flex;
+        }
+        
+        .social2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.4em;
+            color: black;
+            margin-right: 4px;
+        }
+        
+        .facebook {
+            margin-right: 4px;
+        }
+        
+        .instagram {
+            margin-right: 4px;
+        }
+        
+        @media (max-width:1040px) {
+            .sect1 {
+                font-size: 0.6em
+            }
+            .sect2 {
+                font-size: 0.6em
+            }
+            .sect3 {
+                font-size: 0.6em
+            }
+            .sect4 {
+                font-size: 0.6em
+            }
+            .main__hero {
+                padding-top: 40px;
+            }
+            .navbar__list {
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+        }
+        
+        @media (width:280px) {
+            .logo1 {}
+            .navbar__list {
+                grid-template-columns: 0fr 1fr 1fr 1fr 1fr;
+            }
+            .sect1 {
+                font-size: 0.5em;
+            }
+            .sect2 {
+                font-size: 0.55em;
+            }
+            .sect3 {
+                font-size: 0.55em;
+            }
+            .sect4 {
+                font-size: 0.55em;
+            }
+        }
